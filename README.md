@@ -72,6 +72,7 @@ The repository was delevoped using Windows and the code has not been tested for 
 To run the functions in the terminal, the terminal will need to be in the directory of the function.
 
 Any files in the out folder with the same name will be overwritten.
+So far, mp4 is the only supported video format. The clips are compressed using mp4v.
 
 The threshold values used in CompreFace and PySceneDetect were arrived at through some experimentation. More optimal values might exist, and they might vary between videos. The thresholds can be changed in the functions in src/Utils.py
 
