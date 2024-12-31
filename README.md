@@ -9,7 +9,7 @@ To run the code, download and extract the Docker Compose file for CompreFace fou
 1. Enter the directory of the folder (CompreFace_1.2.0).
 3. Enter the folder custom-builds and select the desired build. Information about the custom builds and detailed instructions can be found at https://github.com/exadel-inc/CompreFace/blob/master/custom-builds/README.md. The build used to generate the examples found in processed_videos_ArcFace is located in the directory SubCenter-ArcFace-r100-gpu. Enter the folder of the desired build and run the command: docker-compose up -d 
 Make sure to run this command in an elevated terminal.
-The default port is 8000. If a different port is desired, the port number can be changed in the respective's folder's docker-compose file.
+The default port is 8000. If a different port is desired, the port number can be changed in the respective's folder's docker-compose file. If this is done, the port will need to be changed in src/Utils.py, and the login address in step 4 will be different.
 4. Visit http://localhost:8000/login, create an account and login (the accounts are stored locally and the emails are not checked to be valid). Once logged in, you will be prompted to create a service. Make sure to select Recognition as the type of the service. An API key for the demo services are also generated upon account creation. These demo API keys are fixed, and are included in the script. To use the API key of the non-demo service, add it to processvideos_test.py and replace the parameters passed from api_key_demo to api_key.
 
 Setting up other dependencies: 
@@ -73,6 +73,8 @@ To run the functions in the terminal, the terminal will need to be in the direct
 
 Any files in the out folder with the same name will be overwritten.
 So far, mp4 is the only supported video format. The clips are compressed using mp4v.
+
+The port number (8000) is hard-coded into the functions. If the port number is changed, the few instances in Utils.py will need to be changed. 
 
 The threshold values used in CompreFace and PySceneDetect were arrived at through some experimentation. More optimal values might exist, and they might vary between videos. The thresholds can be changed in the functions in src/Utils.py
 
