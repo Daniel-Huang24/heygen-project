@@ -1,3 +1,4 @@
+import sys
 from os import path
 import cv2
 import datetime
@@ -6,7 +7,7 @@ from pathlib import Path
 from Utils import FrameCollector, get_scene_changes, APICaller, crop_rectangles
 
 # Contains the main logic of the video splitting process
-def Process_Video(video_path, image_path, out_path, API_key='00000000-0000-0000-0000-000000000002', recognization_threshold=0.75, adaptive_threshold=2.7, crop_face=True):
+def Process_Video(video_path, image_path, out_path, API_key='00000000-0000-0000-0000-000000000002', recognization_threshold=0.90, adaptive_threshold=2.9, crop_face=True):
     video_path = path.abspath(video_path)
     image_path = path.abspath(image_path)
     out_path = path.abspath(out_path)
@@ -110,3 +111,9 @@ def Process_Video(video_path, image_path, out_path, API_key='00000000-0000-0000-
     with open(out_path + '/metadata.json', "w") as f:
         json.dump(metadata, f)
 
+def main():
+    arguments = sys.argv[1:]
+    Process_Video(arguments[0], arguments[1], arguments[2])
+
+if __name__ == "__main__":
+    main()
