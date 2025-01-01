@@ -73,6 +73,7 @@ To run the functions in the terminal, the terminal will need to be in the direct
 
 Any files in the out folder with the same name will be overwritten.
 So far, mp4 is the only supported video format. The clips are compressed using mp4v.
+The clips also do not include any audio.
 
 The port number (8000) is hard-coded into the functions. If the port number is changed, the few instances in Utils.py will need to be changed. 
 
